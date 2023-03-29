@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200;300;400&family=Lora:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+$primary-color: #181719;
+$on-primary-color: #FFFFFF;
+
+$font-crimson: 'Crimson Pro', serif;
+$font-lora: 'Lora', serif;
+$font-montserrat: 'Montserrat', sans-serif;
+
+@mixin text-style ($textSize:12px, $textColor:$on-primary-color, $textWeight:normal, $fontFamily:$font-montserrat ) {
+    font-size: $textSize;
+    color: $textColor;
+    font-weight: $textWeight;
+    font-family: $fontFamily;
+}
+
+@mixin flex-style($display:flex, $justifyContent:space-between) {
+    display: flex;
+    justify-content: $justifyContent;
+}
+
+body {
+    background-color: $primary-color;
+    .page{
+        padding: 0px 77px;
+    }
+}
+
+header {
+    @include flex-style();
+    align-items: center;
+    padding-block: 52px;
+    .logo {
+        border: 1px solid $on-primary-color;
+        padding: 5px;
+        width: fit-content;
+        height: fit-content;
+        p {
+            @include text-style($textSize:14px, $textColor:$on-primary-color, $textWeight:200, $fontFamily:$font-crimson );
+        }
+    }
+
+    nav{
+        @include flex-style($justifyContent:normal );
+        align-items: center;
+        ul {
+            @include flex-style($justifyContent:normal );
+            grid-column-gap: 86px;
+            li {
+                list-style: none;
+                padding-block: 8px;
+                
+                a {
+                    text-decoration: none;
+                    @include text-style($textSize:18, $textWeight:500 , $textColor:$on-primary-color , $fontFamily:$font-montserrat )
+                }
+                
+            }
+            li:hover {
+                a {
+                    @include text-style($textSize:18, $textWeight:700 , $fontFamily:$font-montserrat );
+                    border-bottom: 2px solid $on-primary-color;
+                }
+            }
+        }
+        div {
+            display: none;
+            span {
+                @include text-style($textSize:40px, $textWeight:500 , $textColor:$on-primary-color , $fontFamily:normal )
+            }
+        }
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    grid-column-gap: 120px;
+    .content-info {
+        h1 {
+            @include text-style($textSize:48px, $textWeight:500 , $fontFamily:$font-lora );
+            margin-bottom: 32px;
+        }
+        p {
+            @include text-style($textSize:24px, $textWeight:400 , $fontFamily:$font-montserrat );
+            line-height: 40px;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            @include text-style($textSize:18px, $textWeight:700 , $fontFamily:$font-montserrat );
+            text-decoration: none;
+            margin-top: 52px;
+            span {
+                font-size: 24px;
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .content-picture {
+        figure {
+            img {
+                // max-width: 820px;
+                width: 100%;
+                z-index: 100;
+            }
+        }
+        .designer {
+            z-index: 1000;
+            background-color: $primary-color;
+            padding: 4px 34px;
+            margin: -90px 54px 0px auto;
+            width: 410px;
+            position: relative;
+            
+            #designer-info {
+                @include flex-style($justifyContent:normal );
+                align-items: center;
+                figure {
+                    img {
+                        max-width: 75px;
+                        width: 100%;
+                        border-radius: 50%;
+                        margin: 10px;
+                    }
+                }
+                div {
+                    h5 {
+                        @include text-style($textSize:14px, $textWeight:500 , $fontFamily:$font-montserrat, $textColor:$on-primary-color);
+                        line-height: 17px;
+                    }
+                    p {
+                        @include text-style($textSize:12px, $textWeight:500 , $fontFamily:$font-montserrat, $textColor:rgba(130, 130, 130, 1) );
+                        line-height: 15px;
+                    }
+                }
+            }
+            #design-year {
+                
+                h4{
+                    @include text-style($textSize:24px, $textWeight:700 , $fontFamily:$font-lora, $textColor:$on-primary-color);
+                    line-height: 31px;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    padding: 52px 0px;
+    p {
+        @include text-style($textSize:14px, $textWeight:500 , $fontFamily:$font-montserrat, $textColor:rgba(169, 169, 169, 1));
+        text-align: center;
+        span {
+            font-weight: 700;
+        }
+    }
+}
+
+
+@media  screen and (max-width:992px) {
+    body {
+        .page{
+            padding: 0px 52px;
+        }
+    }
+    header {
+        nav {
+            ul {
+                display: none;
+            }
+            div {
+                display: block;
+            }
+        }
+    }
+    .content {
+        flex-wrap: wrap;
+        .content-picture {
+            margin-top: 52px;
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    body {
+        .page{
+            padding: 0px 12px;
+        }
+    }
+    .content {
+        .content-picture {
+            .designer {
+                margin: -90px 24px 0px auto;
+            }
+        }
+    }   
+}
