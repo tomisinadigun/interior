@@ -84,7 +84,7 @@ header {
       font-size: 24px;
       margin-left: 15px; }
   .content .content-picture figure img {
-    width: 100%;
+    max-width: 100%;
     z-index: 100; }
   .content .content-picture .designer {
     z-index: 1000;
