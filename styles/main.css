@@ -91,7 +91,7 @@ header {
     background-color: #181719;
     padding: 4px 34px;
     margin: -90px 54px 0px auto;
-    width: 410px;
+    max-width: 410px;
     position: relative; }
     .content .content-picture .designer #designer-info {
       display: flex;
