@@ -199,10 +199,14 @@ footer {
     .content {
         .content-picture {
             .designer {
-                margin: -90px 24px 0px auto;
-                border: 0.5px solid grey;
+                margin: -90px 12px 0px auto;
                 max-width: 350px;
                 width: 100%;
+                #design-year {
+                    h4 {
+                        @include text-style($textSize:22px, $textWeight:700 , $fontFamily:$font-lora, $textColor:$on-primary-color);
+                    }
+                }
             }
         }
     }
